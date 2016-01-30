@@ -4,7 +4,7 @@ int main(void)
 
 {
     // Création de la sène
-    SceneOpenGL scene("Chapitre 3", 800, 600);
+    SceneOpenGL scene("OpenGL", 800, 600);
 
     // Initialisation de la scène
     if(scene.initialiserFenetre() == false)
@@ -13,11 +13,17 @@ int main(void)
     if(scene.initGL() == false)
      return -1;
 
-    float vertices[] = {-0.5, -0.5,   0.0, 0.5,   0.5, -0.5};
-    float test[] = {-1.5,0.0,   -1.5, 1.5,    0.0,0.0};
+    float vertices[] = {-0.5, 0.0,   0.0, 1.0,   0.5, 0.0, 
+    					 240.0 / 255.0, 210.0 / 255.0, 23.0 / 255.0,    
+                    	 230.0 / 255.0, 0.0, 230.0 / 255.0,             
+                    	 0.0, 1.0, 0.0};
+    float test[] = {-0.5,0.0,   0.0, -1.0,    0.5,0.0,
+    				240.0 / 255.0, 210.0 / 255.0, 23.0 / 255.0,     
+                    0.0, 0.0, 1.0,                        
+                    0.0, 1.0, 0.0};
     
-    scene.ajouteObjet(vertices, 3, 1, new int[1]{2}, 6);
-    scene.ajouteObjet(test, 3, 1, new int[1]{2}, 6);
+    scene.ajouteObjet(vertices, 3, 2, new int[2]{2, 3}, 15);
+    scene.ajouteObjet(test, 3, 2, new int[2]{2, 3}, 15);
 
     // Boucle Principale
     scene.bouclePrincipale();

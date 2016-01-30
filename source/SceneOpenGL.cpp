@@ -9,8 +9,6 @@ void SceneOpenGL::ajouteObjet(float data[], int nombreSommets, int nbEtageActive
 	GLuint vao;
 	GLuint buff;
 
-	 
-
 	float vertices[taille];
 	for(int i = 0; i < taille; i++)
 		vertices[i] = data[i];
@@ -23,7 +21,6 @@ void SceneOpenGL::ajouteObjet(float data[], int nombreSommets, int nbEtageActive
 	glBindBuffer(GL_ARRAY_BUFFER, buff);
 	glBufferData(GL_ARRAY_BUFFER, sizeof vertices, vertices, GL_STATIC_DRAW);
 
-
 	int size = 0;
 	for(int i = 0; i< nbEtageActive; i++)
 	{
@@ -32,8 +29,9 @@ void SceneOpenGL::ajouteObjet(float data[], int nombreSommets, int nbEtageActive
 			glVertexAttribPointer(i, nbDonneeEtage[i], GL_FLOAT, GL_FALSE, 0, 0);
 		else
 		{
-			size += GL_FLOAT * nbDonneeEtage[i-1];
-			glVertexAttribPointer(i, nbDonneeEtage[i], GL_FLOAT, GL_FALSE, 0, (const void *)size);
+      std::cout << "size : " << size << "  ->  " << nombreSommets << " * " << nbDonneeEtage[i-1] << " = " << size + nombreSommets * nbDonneeEtage[i-1] << std::endl;
+			size += nombreSommets * nbDonneeEtage[i-1];
+			glVertexAttribPointer(i, nbDonneeEtage[i], GL_FLOAT, GL_FALSE, 0, (const void *)(size * sizeof *vertices));
 		}
 	}
 
@@ -124,7 +122,7 @@ void SceneOpenGL::bouclePrincipale()
 	// Variables
     bool terminer(false);
     
-    Shader shaderBasique("Shaders/basique2D.vert", "Shaders/basique2D.frag");
+    Shader shaderBasique("Shaders/couleur2D.vert", "Shaders/couleur2D.frag");
     shaderBasique.charger();
 
    	// Boucle principale
@@ -140,8 +138,8 @@ void SceneOpenGL::bouclePrincipale()
 
        	glUseProgram(shaderBasique.getProgramID());
 
-    	m_objet[0].dessineObjet();
-    	m_objet[1].dessineObjet();
+    	  m_objet[0].dessineObjet();
+    	  m_objet[1].dessineObjet();
 
        	glUseProgram(0);
 
