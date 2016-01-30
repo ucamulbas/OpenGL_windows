@@ -29,7 +29,6 @@ void SceneOpenGL::ajouteObjet(float data[], int nombreSommets, int nbEtageActive
 			glVertexAttribPointer(i, nbDonneeEtage[i], GL_FLOAT, GL_FALSE, 0, 0);
 		else
 		{
-      std::cout << "size : " << size << "  ->  " << nombreSommets << " * " << nbDonneeEtage[i-1] << " = " << size + nombreSommets * nbDonneeEtage[i-1] << std::endl;
 			size += nombreSommets * nbDonneeEtage[i-1];
 			glVertexAttribPointer(i, nbDonneeEtage[i], GL_FLOAT, GL_FALSE, 0, (const void *)(size * sizeof *vertices));
 		}

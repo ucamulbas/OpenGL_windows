@@ -1,7 +1,6 @@
 #include "../include/SceneOpenGL.h"
 
 int main(void)
-
 {
     // Création de la sène
     SceneOpenGL scene("OpenGL", 800, 600);
@@ -22,8 +21,13 @@ int main(void)
                     0.0, 0.0, 1.0,                        
                     0.0, 1.0, 0.0};
     
-    scene.ajouteObjet(vertices, 3, 2, new int[2]{2, 3}, 15);
-    scene.ajouteObjet(test, 3, 2, new int[2]{2, 3}, 15);
+    int optionVertices[] = {2, 3};
+    int optionTest[] = {2, 3};
+
+
+
+    scene.ajouteObjet(vertices, 3, 2, optionVertices, 15);
+    scene.ajouteObjet(test, 3, 2, optionTest, 15);
 
     // Boucle Principale
     scene.bouclePrincipale();

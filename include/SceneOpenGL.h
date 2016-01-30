@@ -18,6 +18,7 @@
 
 #include "../include/Shader.h"
 #include "../include/Objet.h"
+#include "glm/glm.hpp"
 
 // Classe
 class SceneOpenGL

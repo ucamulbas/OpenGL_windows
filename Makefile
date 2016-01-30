@@ -1,5 +1,5 @@
 CC= g++
-FLAGS= -O3 -W -Wall -I..\..\Bibliotheque\include -L..\..\Bibliotheque\lib\x86 -lSDL2  -lglew32s -lopengl32 
+FLAGS= -O3 -I..\..\Bibliotheque\include -L..\..\Bibliotheque\lib\x86 -lSDL2  -lglew32s -lopengl32 
 DEFINE= -DSDL_MAIN_HANDLED -DGLEW_STATIC
 SRC= $(wildcard source/*.cpp) 
 OBJ= $(SRC:%.cpp=obj/%.o)
