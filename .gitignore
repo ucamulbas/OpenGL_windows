@@ -4,7 +4,8 @@ SDL2.dll
 glew32.dll
 OpenGL
 OpenGL.exe
-VisualStudioProject\Projet1\x64
-VisualStudioProject\Projet1\Debug
+VisualStudioProject\Projet1\x64\*
+VisualStudioProject\Projet1\x64\Debug\*
+VisualStudioProject\Projet1\Debug\*
 VisualStudioProject\x64
 .vs
