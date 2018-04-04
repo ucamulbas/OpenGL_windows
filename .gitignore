@@ -4,3 +4,6 @@ SDL2.dll
 glew32.dll
 OpenGL
 OpenGL.exe
+Projet1/x64
+Projet1/Debug
+.vs

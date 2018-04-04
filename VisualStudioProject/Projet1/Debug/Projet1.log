@@ -1,0 +1,8 @@
+﻿  main.cpp
+main.obj : error LNK2019: symbole externe non résolu _SDL_GetError référencé dans la fonction _SDL_main
+main.obj : error LNK2019: symbole externe non résolu _SDL_Init référencé dans la fonction _SDL_main
+main.obj : error LNK2019: symbole externe non résolu _SDL_Quit référencé dans la fonction _SDL_main
+MSVCRTD.lib(exe_main.obj) : error LNK2019: symbole externe non résolu _main référencé dans la fonction "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\Jeremie\Developpement\lib\SDL2.lib : warning LNK4272: type d'ordinateur bibliothèque 'x64' en conflit avec le type d'ordinateur cible 'x86'
+C:\Users\Jeremie\Developpement\lib\SDL2main.lib : warning LNK4272: type d'ordinateur bibliothèque 'x64' en conflit avec le type d'ordinateur cible 'x86'
+C:\Users\Jeremie\source\repos\TestC++\Debug\Projet1.exe : fatal error LNK1120: 4 externes non résolus
