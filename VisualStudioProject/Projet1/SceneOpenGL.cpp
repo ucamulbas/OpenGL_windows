@@ -8,7 +8,7 @@ void SceneOpenGL::ajouteObjet(float data[], int nombreSommets, int nbEtageActive
 {
 	GLuint vao;
 	GLuint buff;
-		
+
 
 	Objet objet(data, nombreSommets, nbEtageActive, nbDonneeEtage, taille);
 
@@ -114,26 +114,27 @@ void SceneOpenGL::bouclePrincipale()
 
 	MatrixManager mt;
 	Cam cam;
-
+	float rot = 0;
 	// Boucle principale
 	while (!terminer)
 	{
 		// Gestion des évènements
-		SDL_WaitEvent(&m_evenements);
+		/*SDL_WaitEvent(&m_evenements);
 		if (m_evenements.window.event == SDL_WINDOWEVENT_CLOSE)
-			terminer = 1;
+			terminer = 1;*/
 
-		// Nettoyage de l'écran
+			// Nettoyage de l'écran
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		glUseProgram(shaderBasique.getProgramID());
 
 		Objet obj = m_objet[0];
 
-		Matrix projection = mt.MatrixPerspective(70, m_largeurFenetre / m_hauteurFenetre, .1, 100.0);
+		Matrix projection = mt.MatrixPerspective(90, m_largeurFenetre / m_hauteurFenetre, .1, 100.0);
 		Matrix viewMatrix = mt.MatrixLookAt(cam.getPosition().x, cam.getPosition().y, cam.getPosition().z, cam.getTarget().x, cam.getTarget().y, cam.getTarget().z, 0.0, 1.0, 0.0);
 		Matrix modelview = mt.MatrixLoadIdentity();
 		Matrix MVP = mt.MatrixMultiply(projection, viewMatrix);
+		modelview = mt.MatrixMultiply(mt.MatrixRotatef(rot, 0, 1, 0), modelview);
 		MVP = mt.MatrixMultiply(MVP, modelview);
 		glBindVertexArray(obj.m_vao);
 		glUniformMatrix4fv(glGetUniformLocation(shaderBasique.getProgramID(), "modelViewProjectionMatrix"), 1, GL_FALSE, (GLfloat *)&MVP);
@@ -144,6 +145,10 @@ void SceneOpenGL::bouclePrincipale()
 		glUseProgram(0);
 
 		SDL_GL_SwapWindow(m_fenetre);
+
+		rot += 1;
+		if (rot == 360)
+			rot = 0;
 	}
 }
 
