@@ -1,6 +1,6 @@
 // Version du GLSL
 
-#version 150 core
+#version 330 core
 
 
 // Entrées
@@ -11,8 +11,6 @@ in vec3 in_Color;
 
 // Uniform
 
-uniform mat4 projection;
-uniform mat4 modelview;
 uniform mat4 modelViewProjectionMatrix;
 
 // Sortie

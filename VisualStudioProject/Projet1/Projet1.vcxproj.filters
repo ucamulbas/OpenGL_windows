@@ -54,6 +54,12 @@
     <None Include="Shaders\texture.frag">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="Shaders\tron.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\tron.vs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Include">

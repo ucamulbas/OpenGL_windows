@@ -15,9 +15,7 @@
 #include "Cam.h"
 #include "Input.h"
 
-//#include "glm/glm.hpp"
 
-// Classe
 class SceneOpenGL
 {
     public:
@@ -31,11 +29,12 @@ class SceneOpenGL
 
     //exemple 2 étages, le premier de 3 données et le 2ème de 2 données, nbDonneeEtage sera {3, 2}
     void ajouteObjet(float data[], int nombreSommets, int nbEtageActive, int *nbDonneeEtage, int taille);
-    //void initData(void);
+	void ajouteObjet(Objet obj);
 
     std::vector<Objet> m_objet;
     SDL_Window* m_fenetre;
     SDL_Event m_evenements;
+
     private:
 
     std::string m_titreFenetre;

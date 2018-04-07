@@ -1,7 +1,6 @@
 *~
 *.o
-SDL2.dll
-glew32.dll
+VisualStudioProject/Projet1/*.dll
 OpenGL
 OpenGL.exe
 VisualStudioProject/Projet1/x64/*

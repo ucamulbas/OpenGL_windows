@@ -7,14 +7,6 @@
 #include <GL/glew.h>
 
 
-// Include Mac
-
-#elif __APPLE__
-#define GL3_PROTOTYPES 1
-#include <OpenGL/gl3.h>
-
-
-#endif
 
 
 // Includes communs
@@ -22,7 +14,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
+#include <vector>
+#include <sstream>
 
 // Classe Shader
 
@@ -41,6 +34,8 @@ class Shader
     bool compilerShader(GLuint &shader, GLenum type, std::string const &fichierSource);
     GLuint getProgramID() const;
 
+	GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
+
 
     private:
 
@@ -52,3 +47,4 @@ class Shader
     std::string m_fragmentSource;
 };
 
+#endif

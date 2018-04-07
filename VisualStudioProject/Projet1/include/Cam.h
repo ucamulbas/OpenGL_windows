@@ -7,7 +7,7 @@
 
 class Cam {
 private:
-	Vector m_position = { 62.5 * 4,10.0,-40.0 };
+	Vector m_position;
 	Vector m_target;
 	Vector m_forward;
 	Vector m_left;

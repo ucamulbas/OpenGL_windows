@@ -35,12 +35,9 @@ void Cam::mouseMove(int const xrel, int const yrel)
 	m_left.z = -m_forward.x;
 	m_left = mt.NormalizeV3(m_left);
 
-
 	m_target.x = m_position.x + m_forward.x;
 	m_target.y = m_position.y + m_forward.y;
 	m_target.z = m_position.z + m_forward.z;
-
-
 }
 
 void Cam::keyBoardMove(bool f, bool b, bool l, bool r)

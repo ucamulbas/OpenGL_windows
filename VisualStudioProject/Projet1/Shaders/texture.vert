@@ -1,6 +1,6 @@
 // Version du GLSL
 
-#version 150 core
+#version 330 core
 
 
 // Entrées
@@ -11,9 +11,7 @@ in vec2 in_TexCoord0;
 
 // Uniform
 
-uniform mat4 projection;
-uniform mat4 modelview;
-
+uniform mat4 modelViewProjectionMatrix;
 
 // Sortie
 
@@ -26,10 +24,10 @@ void main()
 {
     // Position finale du vertex en 3D
 
-    gl_Position = projection * modelview * vec4(in_Vertex, 1.0);
+    gl_Position = vec4(in_Vertex, 1.0) * modelViewProjectionMatrix;
 
 
     // Envoi des coordonnées de texture au Fragment Shader
 
-    coordTexture = in_TexCoord0;
+    coordTexture = vec2(in_TexCoord0.s, in_TexCoord0.t);
 }
