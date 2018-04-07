@@ -24,8 +24,7 @@ void Objet::Draw()
 
 void Objet::SetTexture(char* const texturePath)
 {
-	// Chargement de l'image dans une surface SDL
-
+	GLuint m_id;
 	SDL_Surface *imageSDL = IMG_Load(texturePath);
 
 	if (imageSDL == 0)
@@ -34,16 +33,10 @@ void Objet::SetTexture(char* const texturePath)
 		return;
 	}
 
-	GLuint m_id;
-	// Génération de l'ID
 	glGenTextures(1, &m_id);
 
-
-	// Verrouillage
 	glBindTexture(GL_TEXTURE_2D, m_id);
 
-
-	// Format de l'image
 	GLenum formatInterne(0);
 	GLenum format(0);
 
@@ -58,8 +51,6 @@ void Objet::SetTexture(char* const texturePath)
 		else
 			format = GL_BGR;
 	}
-
-	// Détermination du format et du format interne pour les images à 4 composantes
 	else if (imageSDL->format->BytesPerPixel == 4)
 	{
 		// Format interne
@@ -70,8 +61,6 @@ void Objet::SetTexture(char* const texturePath)
 		else
 			format = GL_BGRA;
 	}
-
-	// Dans les autres cas, on arrête le chargement
 	else
 	{
 		std::cout << "Erreur, format interne de l'image inconnu" << std::endl;
@@ -83,9 +72,7 @@ void Objet::SetTexture(char* const texturePath)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-	// Copie des pixels
 	glTexImage2D(GL_TEXTURE_2D, 0, formatInterne, imageSDL->w, imageSDL->h, 0, format, GL_UNSIGNED_BYTE, imageSDL->pixels);
-	// Déverrouillage
 	glBindTexture(GL_TEXTURE_2D, 0);
 	m_texId = m_id;
 }

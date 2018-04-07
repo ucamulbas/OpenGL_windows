@@ -140,16 +140,12 @@
     <ClInclude Include="include\Shader.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\basique2D.frag" />
-    <None Include="Shaders\basique2D.vert" />
     <None Include="Shaders\couleur2D.frag" />
     <None Include="Shaders\couleur2D.vert" />
     <None Include="Shaders\couleur3D.frag" />
     <None Include="Shaders\couleur3D.vert" />
-    <None Include="Shaders\texture.frag" />
-    <None Include="Shaders\texture.vert" />
-    <None Include="Shaders\tron.fs" />
-    <None Include="Shaders\tron.vs" />
+    <None Include="Shaders\texture.fs" />
+    <None Include="Shaders\texture.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

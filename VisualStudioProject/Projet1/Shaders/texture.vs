@@ -9,8 +9,7 @@ out vec2 vsoTexCoord;
 out vec4 vsoPosition;
 
 void main(void) {
-  gl_Position = vec4(vsiPosition, 1.0) * modelViewProjectionMatrix ; 
+  gl_Position = vec4(vsiPosition, 1.0) * modelViewProjectionMatrix; 
   vsoPosition = vec4(vsiPosition, 1.0) * modelMatrix;
   vsoTexCoord = vec2(vsiTexCoord.s,vsiTexCoord.t);
- 
 }

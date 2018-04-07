@@ -29,7 +29,7 @@ int SDL_main(int argc, char*argv[])
 	Objet face(vertices, 4, 2, optionVertices, 20);
 
 	face.SetTexture("images/caisse.jpg");
-	face.SetShader("Shaders/tron.vs", "Shaders/tron.fs");
+	face.SetShader("Shaders/texture.vs", "Shaders/texture.fs");
 
 	
 	scene.ajouteObjet(face);
