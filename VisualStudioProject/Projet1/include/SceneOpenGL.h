@@ -10,8 +10,9 @@
 #include <cstring>
 
 
-#include "include\Shader.h"
-#include "include\Objet.h"
+#include "Shader.h"
+#include "Objet.h"
+#include "Cam.h"
 //#include "glm/glm.hpp"
 
 // Classe

@@ -13,7 +13,7 @@ in vec3 in_Color;
 
 uniform mat4 projection;
 uniform mat4 modelview;
-
+uniform mat4 modelViewProjectionMatrix;
 
 // Sortie
 
@@ -26,7 +26,7 @@ void main()
 {
     // Position finale du vertex en 3D
 
-    gl_Position = projection * modelview * vec4(in_Vertex, 1.0);
+    gl_Position = vec4(in_Vertex, 1.0) * modelViewProjectionMatrix;
 
 
     // Envoi de la couleur au Fragment Shader

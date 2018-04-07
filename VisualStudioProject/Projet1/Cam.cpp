@@ -3,7 +3,7 @@
 
 Cam::Cam(Vector position, Vector target) : m_position(position), m_target(target) {}
 Cam::Cam() {
-	m_position = { 0.0, 0.0, 0.0 };
+	m_position = { 0.0, 0.0, 3.0 };
 	m_target = { 0.0, 0.0, -1.0 };
 }
 Cam::~Cam() {}

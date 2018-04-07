@@ -109,8 +109,11 @@ void SceneOpenGL::bouclePrincipale()
 	// Variables
 	bool terminer(false);
 
-	Shader shaderBasique("Shaders/couleur2D.vert", "Shaders/couleur2D.frag");
+	Shader shaderBasique("Shaders/couleur3D.vert", "Shaders/couleur3D.frag");
 	shaderBasique.charger();
+
+	MatrixManager mt;
+	Cam cam;
 
 	// Boucle principale
 	while (!terminer)
@@ -121,13 +124,23 @@ void SceneOpenGL::bouclePrincipale()
 			terminer = 1;
 
 		// Nettoyage de l'écran
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		glUseProgram(shaderBasique.getProgramID());
 
 		Objet obj = m_objet[0];
-		m_objet[0].dessineObjet();
 
+		Matrix projection = mt.MatrixPerspective(70, m_largeurFenetre / m_hauteurFenetre, .1, 100.0);
+		Matrix viewMatrix = mt.MatrixLookAt(cam.getPosition().x, cam.getPosition().y, cam.getPosition().z, cam.getTarget().x, cam.getTarget().y, cam.getTarget().z, 0.0, 1.0, 0.0);
+		Matrix modelview = mt.MatrixLoadIdentity();
+		Matrix MVP = mt.MatrixMultiply(projection, viewMatrix);
+		MVP = mt.MatrixMultiply(MVP, modelview);
+		glBindVertexArray(obj.m_vao);
+		glUniformMatrix4fv(glGetUniformLocation(shaderBasique.getProgramID(), "modelViewProjectionMatrix"), 1, GL_FALSE, (GLfloat *)&MVP);
+
+		glDrawArrays(GL_TRIANGLES, 0, obj.m_nombreSommets);
+
+		glBindVertexArray(0);
 		glUseProgram(0);
 
 		SDL_GL_SwapWindow(m_fenetre);
