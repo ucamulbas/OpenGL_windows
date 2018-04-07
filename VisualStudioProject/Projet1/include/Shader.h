@@ -33,10 +33,7 @@ class Shader
     bool charger();
     bool compilerShader(GLuint &shader, GLenum type, std::string const &fichierSource);
     GLuint getProgramID() const;
-
-	GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
-
-
+	
     private:
 
     GLuint m_vertexID;
