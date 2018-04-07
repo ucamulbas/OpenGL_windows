@@ -1,6 +1,7 @@
 #ifndef CAM
 #define CAM
 #include "matrix.h"
+#include "Input.h"
 #include <Windows.h>
 #include <GL/gl.h>
 
@@ -16,9 +17,9 @@ public:
 	Cam(Vector position, Vector target);
 	Cam();
 	~Cam();
-
+	void Cam::deplace(Input const &input);
 	void mouseMove(int a, int b);
-	void keyBoardMove(int a, int b, int c, int d);
+	void Cam::keyBoardMove(bool f, bool b, bool l, bool r);
 	Vector getTarget(void);
 	Vector getPosition(void);
 };

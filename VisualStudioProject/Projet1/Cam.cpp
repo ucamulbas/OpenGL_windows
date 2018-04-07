@@ -8,7 +8,13 @@ Cam::Cam() {
 }
 Cam::~Cam() {}
 
-void Cam::mouseMove(int xrel, int yrel)
+void Cam::deplace(Input const &input) {
+	if (input.mouvementSouris())
+		mouseMove(input.getXRel(), input.getYRel());
+	keyBoardMove(input.getTouche(SDL_SCANCODE_UP), input.getTouche(SDL_SCANCODE_DOWN), input.getTouche(SDL_SCANCODE_LEFT), input.getTouche(SDL_SCANCODE_RIGHT));
+}
+
+void Cam::mouseMove(int const xrel, int const yrel)
 {
 	static float atheta = 0.0, aphi = 0.0;
 	MatrixManager mt;
@@ -37,7 +43,7 @@ void Cam::mouseMove(int xrel, int yrel)
 
 }
 
-void Cam::keyBoardMove(int f, int b, int l, int r)
+void Cam::keyBoardMove(bool f, bool b, bool l, bool r)
 {
 	GLfloat speed = 0.5;
 	if (f)

@@ -13,6 +13,8 @@
 #include "Shader.h"
 #include "Objet.h"
 #include "Cam.h"
+#include "Input.h"
+
 //#include "glm/glm.hpp"
 
 // Classe
@@ -39,7 +41,7 @@ class SceneOpenGL
     std::string m_titreFenetre;
     int m_largeurFenetre;
     int m_hauteurFenetre;
-
+	Input m_input;
 
     SDL_GLContext m_contexteOpenGL; 
 };

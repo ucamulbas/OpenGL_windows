@@ -113,16 +113,13 @@ void SceneOpenGL::bouclePrincipale()
 	shaderBasique.charger();
 
 	MatrixManager mt;
-	Cam cam;
+	Cam cam; 
 	float rot = 0;
 	// Boucle principale
-	while (!terminer)
-	{
-		// Gestion des évènements
-		/*SDL_WaitEvent(&m_evenements);
-		if (m_evenements.window.event == SDL_WINDOWEVENT_CLOSE)
-			terminer = 1;*/
-
+	while (!m_input.terminer())
+	{	
+		m_input.updateEvenements();
+		cam.deplace(m_input);
 			// Nettoyage de l'écran
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
