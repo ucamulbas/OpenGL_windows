@@ -12,14 +12,11 @@ int SDL_main(int argc, char*argv[])
 	if (scene.initGL() == false)
 		return -1;
 	
-	float vertices[] = { -0.5, 0.0,   0.0, 1.0,   0.5, 0.0,
-		240.0 / 255.0, 210.0 / 255.0, 23.0 / 255.0,
-		230.0 / 255.0, 0.0, 230.0 / 255.0,
-		0.0, 1.0, 0.0 };
+	float vertices[] = { -0.5, 0.0, 0.0,   0.0, 1.0, 0.0,   0.5, 0.0, 0.0};
 
 
-	int optionVertices[] = { 2, 3 };
-	scene.ajouteObjet(vertices, 3, 2, optionVertices, 15);
+	int optionVertices[] = { 3 };
+	scene.ajouteObjet(vertices, 3, 1, optionVertices, 9);
 
 	// Boucle Principale
 	scene.bouclePrincipale();

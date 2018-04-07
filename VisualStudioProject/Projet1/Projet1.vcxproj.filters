@@ -5,6 +5,8 @@
     <ClCompile Include="Objet.cpp" />
     <ClCompile Include="SceneOpenGL.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Cam.cpp" />
+    <ClCompile Include="Matrix.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Objet.h">
@@ -14,6 +16,12 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="include\SceneOpenGL.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Cam.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Matrix.h">
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>

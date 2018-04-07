@@ -125,6 +125,7 @@ void SceneOpenGL::bouclePrincipale()
 
 		glUseProgram(shaderBasique.getProgramID());
 
+		Objet obj = m_objet[0];
 		m_objet[0].dessineObjet();
 
 		glUseProgram(0);

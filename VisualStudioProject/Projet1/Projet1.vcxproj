@@ -123,12 +123,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cam.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Objet.cpp" />
     <ClCompile Include="SceneOpenGL.cpp" />
     <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Cam.h" />
+    <ClInclude Include="include\Matrix.h" />
     <ClInclude Include="include\Objet.h" />
     <ClInclude Include="include\SceneOpenGL.h" />
     <ClInclude Include="include\Shader.h" />
